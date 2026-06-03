@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: apache-reader-binding
+  namespace: apache
+subjects:
+- kind: ServiceAccount
+  name: apache-user
+  namespace: apache
+roleRef:
+  kind: Role
+  name: apache-reader
+  apiGroup: rbac.authorization.k8s.io
